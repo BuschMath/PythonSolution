@@ -9,14 +9,18 @@ dashes = linesOfInputFile[1].split()
 lenDashes = [len(dashes[0])]
 
 for i in range (1, len(dashes),):
-    lenDashes.append(lenDashes[i-1] + len(dashes) + 1)
+    lenDashes.append(lenDashes[i-1] + len(dashes[i]) + 1)
 
 print(lenDashes)
 
 lCustomers = []
+line = []
 
 for i in range (2, len(linesOfInputFile), ):
-    line =linesOfInputFile[i]
+    line.clear()
+    line.append(linesOfInputFile[i][0:lenDashes[0]])
+    for j in range(1, len(lenDashes), ):
+        line.append(linesOfInputFile[i][lenDashes[j-1]:lenDashes[j]])
 
     print(line)
     lCustomers.append(dict(uname=line[0], passwd=line[1], lname=line[2], 

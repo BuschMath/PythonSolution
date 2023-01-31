@@ -45,4 +45,10 @@ for i in range (2, len(linesOfInputFile), ):
     lZone.append(dict(zoneid=line[0].strip(), zonedesc=line[1].strip(), 
         price=line[2].strip()))
 
-print(lZone)
+lnames = []
+
+for i in range (0, len(lCustomers), ):
+    if (lCustomers[i]['active'] == '1') and (lCustomers[i]['zone'] == '1'):
+        lnames.append(lCustomers[i]['lname'])
+
+print(lnames)
